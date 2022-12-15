@@ -175,7 +175,7 @@
     grid-column: span 3;
 }
 
-.dropdown_icon {
+.dropdown_active .dropdown_icon {
    transform: rotate(180deg);
 }
 
@@ -231,7 +231,7 @@
 .recipe_duration {
     grid-column: span 2;
     font-family: 'Lato';
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     font-weight: 700;
     align-self: center;
     justify-self: flex-end;
@@ -246,7 +246,7 @@
     display: inline-block;
     grid-column: span 3;
     height: 110px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     line-height: 1.2em;
     overflow: hidden;
     text-overflow: ellipsis;
