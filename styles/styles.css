@@ -47,6 +47,149 @@
     font-size: 1.8rem;
 }
 
+/* tags */
+.tags_container {
+    display: flex;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+.tag_name {
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.tag_close {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.tag_icon {
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.tag-ingredients {
+    background-color: #3282F7;
+}
+
+.tag-ustensils {
+    background-color: #ED6454;
+}
+
+.tag-appliances {
+    background-color: #68D9A4;
+}
+/* dropdowns */
+.dropdown_container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+}
+
+.dropdown_group {
+    border-radius: 5px;
+    color: #FFF;
+    position: relative;
+    width: 100%;
+}
+
+.dropdown_btn,
+.dropdown_input {
+    width: 100%;
+    border: none;
+    background:none;
+    color: #FFF;
+    font-size: 1.125rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    padding: 20px 15px;
+    text-align: left;
+}
+
+.dropdown_input::placeholder {
+    color: #fff;
+    opacity: .6;
+}
+
+.dropdown_input {
+    display: none;
+}
+
+.dropdown_list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 48px;
+    border-radius: 0 0 5px 5px;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 15px;
+    padding-inline: 15px;
+    list-style: none;
+}
+
+.dropdown_li {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+.dropdown_icon {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 1rem;
+}
+
+.dropdown_group-ingredients,
+.dropdown_group-ingredients .dropdown_list {
+    background-color: #3282F7;
+}
+
+.dropdown_group-ustensils,
+.dropdown_group-ustensils .dropdown_list {
+    background-color: #ED6454;
+}
+
+.dropdown_group-appliances,
+.dropdown_group-appliances .dropdown_list {
+    background-color: #68D9A4;
+}
+
+/* dropdown active */
+.dropdown_active {
+    grid-column: span 3;
+}
+
+.dropdown_icon {
+   transform: rotate(180deg);
+}
+
+.dropdown_active .dropdown_btn {
+    display: none;
+}
+
+.dropdown_active .dropdown_input {
+    display: block;
+}
+
+.dropdown_active .dropdown_list {
+    display: grid;
+}
 /* RECIPES */
 
 .recipes {
