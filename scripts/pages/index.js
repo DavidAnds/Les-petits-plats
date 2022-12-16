@@ -1,6 +1,5 @@
-// async function init () {
-//    displayRecipe(recipes)
-//   }
+async function init () {
+}
   
-//   init()
+  init()
   

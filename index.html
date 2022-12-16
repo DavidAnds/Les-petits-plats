@@ -37,7 +37,9 @@
                         Ingredients
                     </button>
                     <input type="text" placeholder="rechercher un ingrédient" class="dropdown_input">
-                    <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    <button class="dropdown_icon-btn">
+                        <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    </button>
                     <ul class="dropdown_list">
                        
                     </ul>
@@ -48,18 +50,22 @@
                         Appareils
                     </button>
                     <input type="text" placeholder="rechercher un appareil" class="dropdown_input">
-                    <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    <button class="dropdown_icon-btn">
+                        <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    </button>
                     <ul class="dropdown_list">
                       
                     </ul>
                 </div>
 
-                <div class="dropdown_group dropdown_group-ustensils dropdown_active">
+                <div class="dropdown_group dropdown_group-ustensils">
                     <button class="dropdown_btn">
                         Ustensiles
                     </button>
                     <input type="text" placeholder="rechercher un ustensile" class="dropdown_input">
-                    <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    <button class="dropdown_icon-btn">
+                        <i class=" dropdown_icon fa-solid fa-chevron-down"></i>
+                    </button>
                     <ul class="dropdown_list">
                     </ul>
                 </div>
@@ -73,7 +79,9 @@
 
     </main>
     <script src="./data/recipes.js"></script>
+    <script src="./scripts/utils/dropdown.js"></script>
     <script src="./scripts/factories/recipe.js"></script>
+    <script src="./scripts/factories/dropdownItem.js"></script>
     <script src="./scripts/display/displayRecipe.js"></script>
     <script src="./scripts/pages/index.js"></script>
 </body>
