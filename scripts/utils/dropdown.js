@@ -4,6 +4,9 @@ const dropdownGroup = document.querySelectorAll('.dropdown_group')
 
 dropdownBtn.forEach((btn, index) => {
     btn.addEventListener('click', () => {
+        dropdownGroup.forEach(group => {
+            group.classList.remove('dropdown_active')
+        })
         dropdownGroup[index].classList.add('dropdown_active')
     })
 })

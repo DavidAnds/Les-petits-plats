@@ -21,15 +21,17 @@
         </div>
     </header>
     <main class="container">
-        <div class>
+        <div>
             <div class="search">
                 <input type="text" placeholder="Rechercher une recette" id="search" class="search_input">
                 <label for="search" class="search_label">
                     <i class=" search_icon fa-solid fa-magnifying-glass"></i>
                 </label>
             </div>
+            <p class="error-msg">
+                Votre recherche doit contenir au minimum 3 caractères
+            </p>
             <div class="tags_container">
-                
             </div>
             <div class="dropdown_container">
                 <div class="dropdown_group dropdown_group-ingredients">
@@ -71,18 +73,18 @@
                 </div>
             </div>
         </div>
-
-
+        <p class="no-recipe">
+            Aucune recette ne correspond à votre critère… vous pouvez
+            chercher « tarte aux pommes », « poisson », etc...
+        </p>
         <div class="recipes">
         </div>
-
-
     </main>
     <script src="./data/recipes.js"></script>
     <script src="./scripts/utils/dropdown.js"></script>
     <script src="./scripts/factories/recipe.js"></script>
     <script src="./scripts/factories/dropdownItem.js"></script>
-    <script src="./scripts/display/displayRecipe.js"></script>
+    <script src="./scripts/display/display.js"></script>
     <script src="./scripts/pages/index.js"></script>
 </body>
 </html>

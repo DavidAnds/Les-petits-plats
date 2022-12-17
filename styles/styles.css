@@ -45,6 +45,13 @@
     font-size: 1.8rem;
 }
 
+/* error MSG */
+.error-msg {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    display: none;
+}
+
 /* tags */
 .tags_container {
     display: flex;
@@ -136,6 +143,7 @@
     top: 48px;
     border-radius: 0 0 5px 5px;
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 5px;
     padding-bottom: 15px;
     padding-inline: 15px;
     list-style: none;
@@ -146,12 +154,15 @@
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 1.125rem;
+    width: 100%;
 }
 
 .dropdown_item {
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .dropdown_icon-btn {
@@ -183,7 +194,7 @@
 
 /* dropdown active */
 .dropdown_active {
-    grid-column: span 3;
+    grid-column: span 4;
 }
 
 .dropdown_active .dropdown_icon {
@@ -274,4 +285,14 @@
 
 .ingredient_name {
     font-weight: 700;
+}
+
+/* No recipe */
+.no-recipe {
+    grid-column: span 3;
+    text-align: center;
+    font-size: 1.125rem;
+    font-family: 'Roboto', sans sans-serif;
+    padding: 30px;
+    display: none;
 }
