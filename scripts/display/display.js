@@ -4,8 +4,6 @@ const errorMsg = document.querySelector('.error-msg')
 const noRecipe = document.querySelector('.no-recipe')
 
 function displayRecipe(recipes) {
-   
-
     recipes.forEach(recipe => {
         const recipeModel = recipeFactory(recipe)
         const recipeArticle = recipeModel.createRecipe()

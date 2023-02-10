@@ -1,14 +1,18 @@
 const searchInput = document.querySelector('.search_input')
 let recipesArray = recipes
+let recipesFiltered = []
+
 
 // Algorythm for the search input
 function searchRecipe (recipes, inputValue) {
-  let recipesFiltered = []
+  recipesFiltered = []
 
   if (inputValue.length < 3) {
+    removeAll()
     removeNoRecipe()
     displayError()
     displayAll(recipesArray)
+    console.log(recipesFiltered)
 
   } else {
     removeError()
@@ -19,7 +23,7 @@ function searchRecipe (recipes, inputValue) {
       const ingredients = recipe.ingredients
       const value = inputValue.toLowerCase()
 
-      if(recipesFiltered.filter(e => e.name.includes(name)).length < 1){
+      if(recipesFiltered.filter(e => e.name.toLowerCase() === name).length < 1){
         
         if(description.includes(value)) {
           recipesFiltered.push(recipe)
@@ -39,11 +43,12 @@ function searchRecipe (recipes, inputValue) {
     if(recipesFiltered.length < 1) {
       removeAll()
       displayNoRecipe()
+      console.log(recipesFiltered)
     } else {
       removeAll()
       removeNoRecipe()
       displayAll(recipesFiltered)
-      recipesArray = recipesFiltered
+      console.log(recipesFiltered)
     }
   }
 }
