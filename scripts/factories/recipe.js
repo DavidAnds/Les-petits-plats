@@ -1,5 +1,5 @@
-function recipeFactory (recipe) {
-    const {name, time, description, ingredients} = recipe
+function recipeFactory(recipe) {
+    const { name, time, description, ingredients } = recipe
 
     function createRecipe() {
         const article = document.createElement('article')
@@ -17,14 +17,18 @@ function recipeFactory (recipe) {
                 ${time} min
             </p>
             <div class="recipe_ingredients">
-                ${
-                    ingredients.map(ingredient => {
+                ${ingredients
+                    .map((ingredient) => {
                         return ` 
                         <p class="ingredient">
-                            <span class="ingredient_name">${ingredient.ingredient}:</span> ${ingredient.quantity? ingredient.quantity : ""}${ingredient.unit? ingredient.unit : ""}
+                            <span class="ingredient_name">${
+                                ingredient.ingredient
+                            }:</span> ${
+                            ingredient.quantity ? ingredient.quantity : ''
+                        }${ingredient.unit ? ingredient.unit : ''}
                         </p>`
-                    }).join('\n')
-                }
+                    })
+                    .join('\n')}
             </div>
             <p class="recipe_preparation">
                 ${description}

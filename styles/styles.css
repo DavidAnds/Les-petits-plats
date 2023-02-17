@@ -86,17 +86,18 @@
     font-size: 1.25rem;
 }
 
-.tag-ingredients {
+.tag-ingredient {
     background-color: #3282F7;
 }
 
-.tag-ustensils {
+.tag-ustensil {
     background-color: #ED6454;
 }
 
-.tag-appliances {
+.tag-appliance {
     background-color: #68D9A4;
 }
+
 /* dropdowns */
 .dropdown_container {
     margin-top: 20px;
