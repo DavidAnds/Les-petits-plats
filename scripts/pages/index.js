@@ -16,28 +16,16 @@ function searchRecipe(recipes, inputValue) {
         showRecipe(recipesFiltered)
     } else {
         removeError()
-
-        for (let i = 0; i < recipes.length; i++) {
-            const name = recipes[i].name.toLowerCase()
-            const description = recipes[i].description.toLowerCase()
-            const ingredients = recipes[i].ingredients
-            const value = inputValue.toLowerCase()
-
-            if (description.includes(value)) {
-                recipesFiltered.push(recipes[i])
-            } else if (name.includes(value)) {
-                recipesFiltered.push(recipes[i])
-            } else {
-                for (let i = 0; i < ingredients.length; i++) {
-                    const ingredientName =
-                        ingredients[i].ingredient.toLowerCase()
-                    if (ingredientName.includes(value)) {
-                        recipesFiltered.push(recipes[i])
-                    }
-                }
-            }
-        }
-
+        const valueInput = inputValue.toLowerCase()
+        recipesFiltered = recipes.filter((recipe) => {
+            return (
+                recipe.name.toLowerCase().includes(valueInput) ||
+                recipe.description.toLowerCase().includes(valueInput) ||
+                recipe.ingredients.some((item) =>
+                    item.ingredient.toLowerCase().includes(valueInput)
+                )
+            )
+        })
         showRecipe(recipesFiltered)
     }
 }
@@ -47,26 +35,26 @@ function tagSearch(recipes) {
     if (tags.length === 0) {
         recipesTags = [...recipesArray]
     } else {
-        for (let i = 0; i < tags.length; i++) {
-            for (let i2 = 0; i2 < recipes.length - 1; i2++) {
-                const appliance = recipes[i2].appliance.toLowerCase()
-                const ingredients = recipes[i2].ingredients
-                const ustensils = recipes[i2].ustensils
+    }
+    for (let i = 0; i < tags.length; i++) {
+        for (let i2 = 0; i2 < recipes.length - 1; i2++) {
+            const appliance = recipes[i2].appliance.toLowerCase()
+            const ingredients = recipes[i2].ingredients
+            const ustensils = recipes[i2].ustensils
 
-                if (appliance.includes(tags[i])) {
+            if (appliance.includes(tags[i])) {
+                recipesTags.push(recipes[i2])
+            }
+
+            for (let i3 = 0; i3 < ingredients.length; i3++) {
+                if (ingredients[i3].ingredient.toLowerCase() === tags[i]) {
                     recipesTags.push(recipes[i2])
                 }
+            }
 
-                for (let i3 = 0; i3 < ingredients.length; i3++) {
-                    if (ingredients[i3].ingredient.toLowerCase() === tags[i]) {
-                        recipesTags.push(recipes[i2])
-                    }
-                }
-
-                for (let i4 = 0; i4 < ustensils.length; i4++) {
-                    if (ustensils[i4].toLowerCase() === tags[i]) {
-                        recipesTags.push(recipes[i2])
-                    }
+            for (let i4 = 0; i4 < ustensils.length; i4++) {
+                if (ustensils[i4].toLowerCase() === tags[i]) {
+                    recipesTags.push(recipes[i2])
                 }
             }
         }
@@ -85,7 +73,6 @@ function addTag(name, type) {
 function removeTag(btn) {
     const tag = btn.parentElement
     const name = tag.querySelector('.tag_name').innerText
-
     tag.remove()
     tags = tags.filter((tag) => tag !== name)
     tagSearch(recipesArray)
