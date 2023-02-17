@@ -17,7 +17,7 @@ function searchRecipe(recipes, inputValue) {
     } else {
         removeError()
 
-        for (let i = 0; i < recipes.length - 1; i++) {
+        for (let i = 0; i < recipes.length; i++) {
             const name = recipes[i].name.toLowerCase()
             const description = recipes[i].description.toLowerCase()
             const ingredients = recipes[i].ingredients
@@ -28,7 +28,7 @@ function searchRecipe(recipes, inputValue) {
             } else if (name.includes(value)) {
                 recipesFiltered.push(recipes[i])
             } else {
-                for (let i = 0; i < ingredients.length - 1; i++) {
+                for (let i = 0; i < ingredients.length; i++) {
                     const ingredientName =
                         ingredients[i].ingredient.toLowerCase()
                     if (ingredientName.includes(value)) {
@@ -46,40 +46,31 @@ function tagSearch(recipes) {
     recipesTags = []
     if (tags.length === 0) {
         recipesTags = [...recipesArray]
-    }
+    } else {
+        for (let i = 0; i < tags.length; i++) {
+            for (let i2 = 0; i2 < recipes.length - 1; i2++) {
+                const appliance = recipes[i2].appliance.toLowerCase()
+                const ingredients = recipes[i2].ingredients
+                const ustensils = recipes[i2].ustensils
 
-    // tags.forEach(tag =>  {
-    //     recipesTags =
-    // })
-
-    tags.forEach((tag) => {
-        recipes.forEach((recipe) => {
-            const appliance = recipe.appliance.toLowerCase()
-            const ingredients = recipe.ingredients
-            const ustensils = recipe.ustensils
-
-            if (
-                recipesTags.filter((e) => e.name.toLowerCase() === name)
-                    .length < 1
-            ) {
-                if (appliance.includes(tag)) {
-                    recipesTags.push(recipe)
+                if (appliance.includes(tags[i])) {
+                    recipesTags.push(recipes[i2])
                 }
 
-                ingredients.forEach((ingredient) => {
-                    if (ingredient.ingredient.toLowerCase() === tag) {
-                        recipesTags.push(recipe)
+                for (let i3 = 0; i3 < ingredients.length; i3++) {
+                    if (ingredients[i3].ingredient.toLowerCase() === tags[i]) {
+                        recipesTags.push(recipes[i2])
                     }
-                })
+                }
 
-                ustensils.forEach((ustensil) => {
-                    if (ustensil.toLowerCase() === tag) {
-                        recipesTags.push(recipe)
+                for (let i4 = 0; i4 < ustensils.length; i4++) {
+                    if (ustensils[i4].toLowerCase() === tags[i]) {
+                        recipesTags.push(recipes[i2])
                     }
-                })
+                }
             }
-        })
-    })
+        }
+    }
 
     showRecipe(recipesTags)
 }
@@ -94,11 +85,9 @@ function addTag(name, type) {
 function removeTag(btn) {
     const tag = btn.parentElement
     const name = tag.querySelector('.tag_name').innerText
-    console.log(tag, name)
 
     tag.remove()
     tags = tags.filter((tag) => tag !== name)
-    console.log(tags)
     tagSearch(recipesArray)
 }
 
